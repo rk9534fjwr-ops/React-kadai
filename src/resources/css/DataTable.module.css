@@ -1,0 +1,46 @@
+.table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.table th, .table td {
+  border: 1px solid #999;
+  padding: 0.4rem 0.8rem;
+  text-align: left;
+}
+
+.table th {
+  background-color: #dbeadf;
+  user-select: none;
+}
+
+.sortable:hover {
+  background-color: #c0d9c7;
+}
+
+/* ここからページネーション用のスタイル */
+.pagination {
+  margin-top: 1rem;
+  /* 横並びにして中央寄せ */
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.pagination button {
+  padding: 0.3rem 0.8rem;
+  border: 1px solid #999;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.pagination button:hover:not(:disabled) {
+  background-color: #c0d9c7;
+}
+
+.pagination button:disabled {
+  cursor: default;
+  opacity: 0.5;
+}

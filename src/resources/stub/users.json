@@ -1,0 +1,94 @@
+{
+  "status": "success",
+  "message": "ユーザー一覧を取得しました。",
+  "data": [
+    {
+      "name": "田中 太郎",
+      "nameKana": "タナカ タロウ",
+      "phone": "090-9999-8888",
+      "email": "test@tes.com",
+      "age": 10,
+      "sentStatus": "済"
+    },
+    {
+      "name": "田中 太郎2",
+      "nameKana": "タナカ タロウ2",
+      "phone": "090-9999-8888",
+      "email": "test@tes.com",
+      "age": 20,
+      "sentStatus": "未"
+    },
+		{
+		"name": "田中 太郎3",
+		"nameKana": "タナカ タロウ3",
+		"phone": "090-9999-8888",
+		"email": "test@tes.com",
+		"age": 30,
+		"sentStatus": "済"
+		},
+		{
+		"name": "田中 太郎4",
+		"nameKana": "タナカ タロウ4",
+		"phone": "090-9999-8888",
+		"email": "test@tes.com",
+		"age": 40,
+		"sentStatus": "未"
+		},
+		{
+		"name": "田中 太郎5",
+		"nameKana": "タナカ タロウ5",
+		"phone": "090-9999-8888",
+		"email": "test@tes.com",
+		"age": 50,
+		"sentStatus": "未"
+		},
+		{
+		"name": "田中 太郎6",
+		"nameKana": "タナカ タロウ6",
+		"phone": "090-9999-8888",
+		"email": "test@tes.com",
+		"age": 60,
+		"sentStatus": "済"
+		},
+		{
+		"name": "田中 太郎7",
+		"nameKana": "タナカ タロウ7",
+		"phone": "090-9999-8888",
+		"email": "test@tes.com",
+		"age": 70,
+		"sentStatus": "済"
+		},
+		{
+		"name": "田中 太郎8",
+		"nameKana": "タナカ タロウ8",
+		"phone": "090-9999-8888",
+		"email": "test@tes.com",
+		"age": 80,
+		"sentStatus": "済"
+		},
+		{
+		"name": "田中 太郎9",
+		"nameKana": "タナカ タロウ9",
+		"phone": "090-9999-8888",
+		"email": "test@tes.com",
+		"age": 90,
+		"sentStatus": "未"
+		},
+		{
+		"name": "田中 太郎10",
+		"nameKana": "タナカ タロウ10",
+		"phone": "090-9999-8888",
+		"email": "test@tes.com",
+		"age": 100,
+		"sentStatus": "未"
+		},
+		{
+		"name": "田中 太郎11",
+		"nameKana": "タナカ タロウ11",
+		"phone": "090-9999-8888",
+		"email": "test@tes.com",
+		"age": 100,
+		"sentStatus": "未"
+		}
+  ]
+}

@@ -4,7 +4,8 @@
   margin-top: 1rem;
 }
 
-.table th, .table td {
+.table th,
+.table td {
   border: 1px solid #999;
   padding: 0.4rem 0.8rem;
   text-align: left;
@@ -17,6 +18,11 @@
 
 .sortable:hover {
   background-color: #c0d9c7;
+}
+
+/* 🔹 テーブル非表示時のスタイル */
+.table.hidden {
+  display: none;
 }
 
 /* ここからページネーション用のスタイル */
@@ -43,4 +49,25 @@
 .pagination button:disabled {
   cursor: default;
   opacity: 0.5;
+}
+
+/* 🔹 検索前メッセージ */
+.no-data-message {
+  text-align: center;
+  margin-top: 20px;
+  color: #777;
+  font-size: 0.95rem;
+  animation: fadeIn 0.4s ease;
+}
+
+/* 🔹 フェードイン効果 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

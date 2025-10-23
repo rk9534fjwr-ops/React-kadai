@@ -15,7 +15,8 @@ const UserSearchTemplate: React.FC = () => {
 
   const [allData, setAllData] = useState<UserData[]>([]);
   const [filteredData, setFilteredData] = useState<UserData[]>([]);
-  const [loading, setLoading] = useState(true); // ← 読み込み中フラグ
+  const [loading, setLoading] = useState(true); // 読み込み中フラグ
+  const [hasSearched, setHasSearched] = useState(false); // ← 検索実行済みフラグを追加
 
   // ✅ 初回レンダリング時にAPIからデータを取得
   useEffect(() => {
@@ -25,7 +26,7 @@ const UserSearchTemplate: React.FC = () => {
         if (!res.ok) throw new Error('APIエラー');
         const json = await res.json();
         setAllData(json.data);
-        setFilteredData(json.data);
+        setFilteredData([]); // ← 初期は空にして非表示
       } catch (error) {
         console.error('データ取得失敗:', error);
       } finally {
@@ -38,6 +39,7 @@ const UserSearchTemplate: React.FC = () => {
   // ✅ 検索ボタン押下時
   const handleSearch = (newCriteria: SearchCriteria) => {
     setCriteria(newCriteria);
+    setHasSearched(true); // ← 検索が行われた
 
     const filtered = allData.filter((user) => {
       if (newCriteria.filterUnsentOnly && user.sentStatus.trim() !== '未') return false;
@@ -61,7 +63,8 @@ const UserSearchTemplate: React.FC = () => {
       filterUnsentOnly: false,
     };
     setCriteria(cleared);
-    setFilteredData(allData);
+    setFilteredData([]); // ← 非表示に戻す
+    setHasSearched(false); // ← 検索前状態に戻す
   };
 
   // ✅ ローディング中表示
@@ -77,7 +80,15 @@ const UserSearchTemplate: React.FC = () => {
         onSearch={handleSearch}
         onClear={handleClear}
       />
-      <DataTable data={filteredData} criteria={criteria} />
+
+      {/* ✅ 検索前は非表示にする */}
+      {hasSearched ? (
+        <DataTable data={filteredData} criteria={criteria} />
+      ) : (
+        <p style={{ textAlign: 'center', marginTop: '20px', color: '#777' }}>
+          検索条件を入力して「検索」を押してください。
+        </p>
+      )}
     </div>
   );
 };

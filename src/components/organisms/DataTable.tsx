@@ -34,6 +34,14 @@ export const DataTable: React.FC<DataTableProps> = ({ data, criteria }) => {
   const [sortAsc, setSortAsc] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
 
+  // ✅ 検索実行済みか判定（条件がすべて空なら未検索）
+  const hasSearched =
+    criteria.name !== '' ||
+    criteria.nameKana !== '' ||
+    criteria.phone !== '' ||
+    criteria.email !== '' ||
+    criteria.filterUnsentOnly;
+
   // 絞り込み（未フィルタ対応）
   const filteredData = data.filter((d) => {
     if (criteria.filterUnsentOnly && d.sentStatus.trim() !== '未') return false;
@@ -67,16 +75,23 @@ export const DataTable: React.FC<DataTableProps> = ({ data, criteria }) => {
     }
   };
 
+  // ✅ 検索前はテーブル非表示（CSSの .hidden を利用）
+  if (!hasSearched) {
+    return <p className={styles.noDataMessage}>検索条件を入力して検索してください。</p>;
+  }
+
   return (
     <>
       {pagedData.length === 0 ? (
         <p className={styles.noData}>該当するデータがありません。</p>
       ) : (
-        <table className={styles.table}>
+        <table className={`${styles.table} ${!hasSearched ? styles.hidden : ''}`}>
           <thead>
             <tr>
-              <th>氏名<br />
-              <small>氏名カナ</small></th>
+              <th>
+                氏名<br />
+                <small>氏名カナ</small>
+              </th>
               <th>電話番号</th>
               <th>メールアドレス</th>
               <SortableHeader
